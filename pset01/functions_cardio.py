@@ -28,16 +28,16 @@ def print_square(n):
     ***
     ***
     """
-    # replace the pass statement with your code
-    pass
+    for count in range(1, n + 1):
+        print("*" * n)
 
 
 def is_odd(n):
     """
     Return True if n is odd, False otherwise.
     """
-    # replace the pass statement with your code
-    pass
+    half = n / 2
+    return type(half = float)
 
 
 def median_of_three(a, b, c):
