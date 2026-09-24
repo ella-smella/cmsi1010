@@ -43,8 +43,9 @@ def median_of_three(a, b, c):
     """
     Return the median of three numbers a, b, and c.
     """
-    # replace the pass statement with your code
-    pass
+    sorted_list = [a, b, c]
+    sorted_list.sort()
+    return sorted_list[1]
 
 
 def is_palindrome(s):
@@ -67,8 +68,11 @@ def factorial(n):
     positive integers less than or equal to n. Please implement this
     function with a for loop.
     """
+    if(n == 0):
+        return 1
+
     n_factorial = n
-    for count in (n, 0, -1):
+    for count in range (n - 1, 0, -1):
         n_factorial = n_factorial * count
 
     return n_factorial
@@ -96,8 +100,10 @@ def at_beginning_or_end(part, whole):
     """
     Return True if the part is a prefix or a suffix of whole.
     """
-    # replace the pass statement with your code
-    pass
+    part_length = len(part)
+    whole_length = len(whole)
+
+    return (whole[0:part_length] == part or whole[whole_length - part_length:] == part)
 
 
 def longest_string(strings):
@@ -215,11 +221,11 @@ def test_collatz():
 
 test_print_square()
 test_is_odd()
-#test_median_of_three()
+test_median_of_three()
 test_factorial()
 test_is_palindrome()
 test_count_of_latin_vowels()
-#test_at_beginning_or_end()
+test_at_beginning_or_end()
 #test_longest_string()
 #test_collatz()
 print("All tests passed!")
