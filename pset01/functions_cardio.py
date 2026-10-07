@@ -1,24 +1,3 @@
-# ----------------------------------------------------------------------
-# This is the file functions_cardio.py
-#
-# The intent is to give you practice writing functions.
-#
-# Complete the functions below.
-#
-# Each function has a docstring that describes what it should do, but
-# please see the unit tests at the bottom of the file for more
-# specific examples of what each function should return.
-#
-# Do not change the tests at the bottom of the file. They are there for
-# you to check your work. Just run this file with `python` or `python3`
-# (whichever works for your system).
-#
-# Remove this comment, and all of the "replace the pass statement..."
-# comments, prior to submission. You can, and should, add your own
-# comments, but please remove all the comments that are here now.
-# ----------------------------------------------------------------------
-
-
 def print_square(n):
     """
     Print a square of asterisks with side length n.
@@ -113,8 +92,13 @@ def longest_string(strings):
     If there are multiple strings with the same maximum length, return
     the first one encountered.
     """
-    # replace the pass statement with your code
-    pass
+    longest_string = strings[0]
+
+    for count in range (1, len(strings)):
+        if len(strings[count]) > len(longest_string):
+            longest_string = strings[count]
+
+    return longest_string
 
 
 def collatz(n):
@@ -126,8 +110,16 @@ def collatz(n):
     - If n is odd, the next term is 3n + 1.
     - The sequence ends when it reaches 1.
     """
-    # replace the pass statement with your code
-    pass
+    collatz = [n]
+
+    while n != 1:
+        if n % 2 == 0:
+            n = n / 2
+        else:
+            n = 3 * n + 1
+        collatz.append(n)
+    
+    return collatz
 
 
 def test_print_square():
@@ -226,6 +218,6 @@ test_factorial()
 test_is_palindrome()
 test_count_of_latin_vowels()
 test_at_beginning_or_end()
-#test_longest_string()
-#test_collatz()
+test_longest_string()
+test_collatz()
 print("All tests passed!")
