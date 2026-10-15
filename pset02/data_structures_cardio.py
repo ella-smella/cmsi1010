@@ -11,9 +11,7 @@
 # specific examples of what each function should return. To run
 # the tests, you can use the command
 #
-#     python3 -m unittest data_structures_cardio.py
-#
-# (or python depending on your system).
+#     python -m unittest data_structures_cardio.py
 #
 # Remove this comment, and all of the "replace the pass statement..."
 # comments, prior to submission. You can, and should, add your own
@@ -24,11 +22,12 @@
 def third_element(t):
     """
     If t is a tuple with at least three elements, return the third
-    element. If t is not a tuple or has fewer than three elements,
-    raise an IndexError.
+    element. If t is not a tuple, raise a TypeError. If t has fewer 
+    than three elements, raise an IndexError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance(t, tuple):
+        raise TypeError
+    return t[2]
 
 
 def reverse_pair(t):
@@ -38,8 +37,12 @@ def reverse_pair(t):
     If t is a tuple with more or fewer than two elements, raise a
     ValueError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance(t, tuple):
+        raise TypeError
+    elif len(t) != 2:
+        raise ValueError
+    else: 
+        return (t[1], t[0])
 
 
 def middle_element_of_list(a):
@@ -50,8 +53,14 @@ def middle_element_of_list(a):
     elements, raise an IndexError. If a is not a list, raise a
     TypeError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance(a, list):
+        raise TypeError
+    elif len(a) == 0:
+        raise IndexError
+    elif len(a) % 2 == 0:
+        return a[len(a) // 2 - 1]
+    else:
+        return a[len(a) // 2 ]
 
 
 def unique_elements(a):
@@ -59,8 +68,10 @@ def unique_elements(a):
     Return a set of unique elements from the input list a.
     If a is not a list, raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance(a, list):
+        raise TypeError
+    else:
+        return set(a)
 
 
 def contains_duplicates(a):
@@ -68,8 +79,16 @@ def contains_duplicates(a):
     Return True if the input list a contains any duplicate elements,
     and False otherwise. If a is not a list, raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance (a, list):
+        raise TypeError
+
+    for word in a:
+        for test in a:
+            if a.index(word) != a.index(test):
+                if word == test:
+                    return True
+    return False
+
 
 
 def is_superset(a, b):

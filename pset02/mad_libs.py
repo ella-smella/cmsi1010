@@ -41,3 +41,7 @@
 #
 #   2. The possible "yes" answers should be stored in a set.
 # ----------------------------------------------------------------------
+
+templates = [
+    ""
+]
