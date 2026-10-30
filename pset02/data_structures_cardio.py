@@ -106,6 +106,7 @@ def most_frequent_value_or_values(d):
     set (because there are no elements to count). If d is not a
     dictionary, raise a TypeError.
     """
+    #Assisted with Claude
     if not isinstance (d, dict):
         raise TypeError
     elif len(d) == 0:
@@ -142,6 +143,7 @@ def word_frequencies(s):
 
     If s is not a string, raise a TypeError.
     """
+    #Assisted with Claude
     if not isinstance(s, str):
         raise TypeError
     else:
