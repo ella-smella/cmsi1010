@@ -29,4 +29,20 @@ def deal_one_five_card_hand():
     deck = shuffled_deck()
     return set(deck[:5])
 
+def deal(number_of_hands, cards_per_hand):
+    deck = shuffled_deck()
+    hands = []
+    if not isinstance(number_of_hands, int) or not isinstance(cards_per_hand, int):
+        raise TypeError("number of hands and number of cards must be an integer")
+    
+    if number_of_hands <= 0 or cards_per_hand <= 0:
+        raise ValueError("number of hands and number of cards must be positive")
+
+    if number_of_hands * cards_per_hand > 52:
+        raise ValueError("required amount of cards exceeds the number of cards in a standard deck")
+
+    #for loop of the amount of number of hands
+    #do the deal one five card hand code, but obvi replace the 5 with cards per hand
+    #create another hand but start off from 1 + the cards per hand, make that a value and +=
+
 print([str(card) for card in standard_deck()])
