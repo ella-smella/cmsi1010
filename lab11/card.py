@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from random import shuffle
 
 @dataclass(frozen=True)
 class Card:
@@ -16,9 +17,16 @@ class Card:
         rank_str = {1: "A", 11: "J", 12: "Q", 13: "K"}.get(self.rank, str(self.rank))
         return f"{rank_str}{suit_str}"
 
+def standard_deck():
+    return [Card(suit, rank) for suit in "SHDC" for rank in range(1, 14)]
 
-# Temporary prints, just to see if things are ok
-print(Card("S", 1))
-print(Card("H", 11))
-print(Card(rank=3, suit="C"))
-print(Card("X", 1))
+def shuffled_deck():
+    cards = standard_deck()
+    shuffle(cards)
+    return cards
+
+def deal_one_five_card_hand():
+    deck = shuffled_deck()
+    return set(deck[:5])
+
+print([str(card) for card in standard_deck()])
