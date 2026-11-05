@@ -41,8 +41,19 @@ def deal(number_of_hands, cards_per_hand):
     if number_of_hands * cards_per_hand > 52:
         raise ValueError("required amount of cards exceeds the number of cards in a standard deck")
 
+    hand_start = 0
+    hand_end = cards_per_hand
+    for i in range(1, number_of_hands + 1):
+        hands.append(set(deck[hand_start:hand_end]))
+        hand_start = hand_end
+        hand_end += cards_per_hand 
+
+    return hands
     #for loop of the amount of number of hands
     #do the deal one five card hand code, but obvi replace the 5 with cards per hand
     #create another hand but start off from 1 + the cards per hand, make that a value and +=
 
-print([str(card) for card in standard_deck()])
+for hand in deal(4, 13):
+    print()
+    for card in hand:
+        print(str(card))
