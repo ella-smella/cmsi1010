@@ -52,3 +52,9 @@ def deal(number_of_hands, cards_per_hand):
     #for loop of the amount of number of hands
     #do the deal one five card hand code, but obvi replace the 5 with cards per hand
     #create another hand but start off from 1 + the cards per hand, make that a value and +=
+
+
+for hand in deal(5, 5):
+    for card in hand:
+        print(card, end=' ')
+    print()
